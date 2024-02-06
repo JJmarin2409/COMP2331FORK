@@ -33,18 +33,18 @@ asm_main:
         enter   0,0               ; setup routine
         pusha
 
-        mov     eax, prompt
-        call    print_string
+        mov     eax, prompt       ; set up prompt to be printed 
+        call    print_string      ; prints prompts 
 
-        call    read_int
-        mov     [input], eax
+        call    read_int          ; reads int from input 
+        mov     [input], eax      ; saves eax into input 
 
-        imul    eax               ; edx:eax = eax * eax
+        imul    eax               ; edx : eax = eax * eax
         mov     ebx, eax          ; save answer in ebx
-        mov     eax, square_msg
-        call    print_string
-        mov     eax, ebx
-        call    print_int
+        mov     eax, square_msg   ; setup square msg 
+        call    print_string      ; prints square msg
+        mov     eax, ebx          ; saves ebx into eax
+        call    print_int         ; prints eeax (square #)
         call    print_nl
 
         mov     ebx, eax
